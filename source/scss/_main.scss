@@ -1,6 +1,9 @@
 /**
  *  COMMENT
  */
+.s01 {
+    margin: 0 0 50px 0;
+}
 .s01-item {
     margin: 0 0 30px 0;
 }
@@ -27,6 +30,21 @@
         width: 20px;
         margin: 0 5px 0 0;
         background-color: $brand-info;
+    }
+}
+.s02-item {
+    margin: 0 0 30px 0;
+}
+.s02-01 {
+    svg {
+        margin: 0 10px 0 0;
+        border: 1px saturate($brand-primary,30%) solid;
+    }
+    .bar {
+        // svg
+        fill: $brand-primary;
+        stroke: lighten($brand-primary,30%);
+        stroke-width: 4px;
     }
 }
 // google font

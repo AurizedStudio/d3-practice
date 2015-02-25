@@ -36,7 +36,7 @@
     <h1>Something of ds.js</h1>
 </header>
 <section class="s01">
-    <h2>棒グラフ</h2>
+    <h2>棒グラフ div要素</h2>
     <div class="s01-01 s01-item">
     <script>
         var dataset = [5, 10, 15, 20, 25];
@@ -74,7 +74,7 @@
                     var newNum = Math.round(Math.random()*80); // 0〜80のランダムな数を生成して整数に丸める
                     dataset.push(newNum);
                 }
-            d3.select("div.s01-03")
+            d3.select(".s01-03")
                 .selectAll("div")
                 .data(dataset)
                 .enter()
@@ -83,6 +83,51 @@
                 .style("height", function(d){
                     return d + "px";
                 });
+        </script>
+    </div>
+</section>
+<section class="s02">
+    <h2>svg要素</h2>
+    <div class="s02-01 s02-item">
+        <script charset="utf-8">
+            var w = 500;
+            var h = 100;
+
+            // １つ目のsvg
+            var dataset = [5, 10, 15, 20, 25];
+            var svg = d3.select(".s02-01")
+                        .append("svg")
+                        .attr("width", w)
+                        .attr("height", h); // svgの箱を生成
+            var circles = svg.selectAll("circle")
+                            .data(dataset)
+                            .enter()
+                            .append("circle")
+                            .classed("bar", true); // circle要素を生成
+            circles.attr("cx", function(d,i){ // 第２引数はn番目という意味になる
+                return(i*50)+25;
+            })
+            .attr("cy", h/2)
+            .attr("r", function(d){
+                return d;
+            });
+
+            // ２つ目のsvg
+            var dataset2 = [0, 10, 20, 30, 40];
+            var svg2 = d3.select(".s02-01")
+                        .append("svg")
+                        .attr("width", w-50)
+                        .attr("height", h); // svgの箱を生成
+            var circles2 = svg2.selectAll("circle")
+                            .data(dataset2)
+                            .enter()
+                            .append("circle")
+                            .classed("bar", true); // circle要素を生成
+            circles2.attr("cx", function(d){
+                return d*10;
+            })
+            .attr("cy", h/2)
+            .attr("r", 40);
         </script>
     </div>
 </section>
