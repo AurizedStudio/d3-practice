@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<title>D3 Practice</title>
+<title>d3.js Practice</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta property="og:title" content="Title">
@@ -28,25 +28,67 @@
 <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script>window.html5 || document.write('<script src="js/html5shiv.min.js"><\/script>')</script>
 <![endif]-->
+<script src="js/d3.min.js"></script>
 </head>
-<body class="contact-page">
-<div class="text-center"><a class="sr-only sr-only-focusable" href="#main">Skip to CONTENTS</a></div>
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+<body>
+<div class="container">
 <header>
+    <h1>Something of ds.js</h1>
 </header>
-<div id="main" class="main">
-  <p>Main Content</p>
-  <p>Main Content</p>
-  <p>Main Content</p>
-  <p>Main Content</p>
+<section class="s01">
+    <h2>棒グラフ</h2>
+    <div class="s01-01 s01-item">
+    <script>
+        var dataset = [5, 10, 15, 20, 25];
+        d3.select("div.s01-01")
+            .selectAll("div")
+            .data(dataset)
+            .enter()
+            .append("div")
+            .classed("bar", true)
+            .style("height", function(d){
+                var barHeight = d*5;
+                return barHeight + "px";
+            });
+    </script>
+    </div>
+    <div class="s01-02 s01-item">
+        <script charset="utf-8">
+            var dataset = [10, 2, 50, 60, 80, 30, 20, 18, 17, 30, 80];
+            d3.select("div.s01-02")
+                .selectAll("div")
+                .data(dataset)
+                .enter()
+                .append("div")
+                .classed("bar", true)
+                .style("height", function(d){
+                    return d + "px";
+                });
+        </script>
+    </div>
+    <div class="s01-03 s01-item">
+        <h3>ランダム生成</h3>
+        <script charset="utf-8">
+            var dataset = [];
+                for (var i=0; i<20; i++){
+                    var newNum = Math.round(Math.random()*80); // 0〜80のランダムな数を生成して整数に丸める
+                    dataset.push(newNum);
+                }
+            d3.select("div.s01-03")
+                .selectAll("div")
+                .data(dataset)
+                .enter()
+                .append("div")
+                .classed("bar", true)
+                .style("height", function(d){
+                    return d + "px";
+                });
+        </script>
+    </div>
+</section>
+<footer></footer>
 </div>
-<!-- / #main -->
-<footer class="footer">
-</footer>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-<script src="js/d3.min.js"></script>
 </body>
 </html>
