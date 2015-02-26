@@ -94,7 +94,7 @@
             var h = 100;
 
             // １つ目のsvg
-            var dataset = [5, 10, 15, 20, 25];
+            var dataset = [5, 10, 15, 20, 25, 30, 35, 40];
             var svg = d3.select(".s02-01")
                         .append("svg")
                         .attr("width", w)
@@ -122,12 +122,64 @@
                             .data(dataset2)
                             .enter()
                             .append("circle")
-                            .classed("bar", true); // circle要素を生成
+                            .classed("bar2", true); // circle要素を生成
             circles2.attr("cx", function(d){
                 return d*10;
             })
             .attr("cy", h/2)
             .attr("r", 40);
+        </script>
+    </div>
+</section>
+<section class="s03">
+    <h2>棒グラフ svg要素</h2>
+    <div class="s03-01 s03-item">
+        <script charset="utf-8">
+            var dataset = [100, 100, 90, 70, 20, 10, 50, 100, 80, 50, 40, 90, 100, 100];
+            var svgWidth = 500;
+            var svgHeight = 140;
+            var svgMargin = 5; // 間隔用
+            // svgの箱を作成
+            var svg = d3.select(".s03-01")
+                        .append("svg")
+                        .attr("width", svgWidth)
+                        .attr("height", svgHeight);
+            // 各棒グラフシェイプ作成
+            svg.selectAll("rect")
+                .data(dataset)
+                .enter()
+                .append("rect")
+                .classed("bar", true)
+                .attr("x", function(d,i){
+                    return i*(svgWidth/dataset.length); // svgの幅をデータ個数で割る
+                })
+                .attr("y", function(d){
+                    return svgHeight-d-20; // svgの高さからデータの値を引きラベル表示用に上に移動
+                })
+                .attr("width", svgWidth/dataset.length - svgMargin)
+                .attr("height", function(d){
+                    return d; // rectの高さはデータの値そのもの
+                })
+                .attr("fill", function(d){
+                    return "rgb(217,83,"+(2*d)+")"; // dの値により色を変化させる
+                });
+            // ラベル
+            // text-anchor:水平方向の中央配置 棒半分だけ右にずらす　
+            svg.selectAll("text")
+                .data(dataset)
+                .enter()
+                .append("text")
+                .classed("label", true)
+                .text(function(d){
+                    return d;
+                })
+                .attr("text-anchor", "middle")
+                .attr("x", function(d,i){
+                    return i*(svgWidth/dataset.length)+(svgWidth/dataset.length-svgMargin)/2;
+                })
+                .attr("y", function(d){
+                    return svgHeight-5;
+                });
         </script>
     </div>
 </section>

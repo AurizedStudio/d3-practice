@@ -32,6 +32,9 @@
         background-color: $brand-info;
     }
 }
+.s02 {
+    margin: 0 0 50px 0;
+}
 .s02-item {
     margin: 0 0 30px 0;
 }
@@ -45,6 +48,27 @@
         fill: $brand-primary;
         stroke: lighten($brand-primary,30%);
         stroke-width: 4px;
+    }
+    .bar2 {
+        // svg
+        fill: $brand-warning;
+        stroke: darken($brand-warning,10%);
+        stroke-width: 6px;
+    }
+}
+.s03-item {
+    margin: 0 0 30px 0;
+}
+.s03-01 {
+    // svg {
+    //     border: 1px lighten($brand-danger,20%) solid;
+    // }
+    .bar {
+        // svg
+//        fill: $brand-danger;
+    }
+    .label {
+        fill: $gray-darker;
     }
 }
 // google font
