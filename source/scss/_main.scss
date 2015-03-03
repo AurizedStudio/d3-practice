@@ -98,6 +98,25 @@
         fill: darken($brand-info,40%);
     }
 }
+.s05-item {
+    margin: 0 0 30px 0;
+}
+.s05-01 {
+    .dot {
+        fill: $brand-warning;
+    }
+    .axis {
+        path,
+        line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+        text {
+            font-size: $font-size-small;
+        }
+    }
+}
 // google font
 // @import url(http://fonts.googleapis.com/css?family=Bitter);
 
